@@ -3,6 +3,10 @@ let firstCard, secondCard;
 let flippedCard = false;
 let lockBoard = false;
 
+let attempts = 0;
+
+document.querySelector(".attempts").textContent = attempts;
+
 function flipCard(){
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -43,7 +47,7 @@ function unflipCard(){
 }
 
 function reset() {
-    [FlippedCard, lockBoard] = [false, false];
+    [flippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
 
@@ -55,7 +59,3 @@ function reset() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard))
-
-let attempts = 0;
-
-document.querySelector(".attempts").textContent = attempts;
