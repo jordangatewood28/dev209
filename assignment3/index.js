@@ -1,10 +1,7 @@
 const gridContainer = document.querySelector(".game-card");
 let firstCard, secondCard;
-let FlippedCard = false;
+let flippedCard = false;
 let lockBoard = false;
-let attempts = 0;
-
-document.querySelector(".attempts").textContent = attempts;
 
 function flipCard(){
     if (lockBoard) return;
@@ -12,21 +9,21 @@ function flipCard(){
 
     this.classList.add('flip');
 
-    if (!FlippedCard){
-        FlippedCard = true;
+    if (!flippedCard){
+        flippedCard = true;
         firstCard = this;
 
         return;
     }
 
     secondCard = this;
-    CheckMatch()
+    checkMatch()
 }
 
-function CheckMatch(){
+function checkMatch(){
     let Match = firstCard.dataset.framework === secondCard.dataset.framework;
 
-    Match ? disableCards() : unflipCards();
+    Match ? disableCards() : unflipCard();
 }
 
 function disableCards(){
@@ -58,3 +55,7 @@ function reset() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard))
+
+let attempts = 0;
+
+document.querySelector(".attempts").textContent = attempts;

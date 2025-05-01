@@ -9,11 +9,6 @@ h1{
     font-size: 60px;
 }
 
-h2{
-    font-weight: bolder;
-    color: gold;
-}
-
 p{
     font-size: 20px;
 }
@@ -32,15 +27,15 @@ body {
     justify-content: center;
     flex-direction: column;
     background-color: white;
-    height: 1000px;
+    height: 1200px;
     width: 1000px;
     padding: 100px 100px;
     border-radius: 25px;
 }
 
 .game{
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -50,7 +45,7 @@ body {
 }
 
 .game-card{
-    height: calc(33.33% - 10px);
+    height: calc(33.33% - 5px);
     width: calc(25% - 10px);
     margin: 5px;
     position: relative;
