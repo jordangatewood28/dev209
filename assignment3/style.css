@@ -56,10 +56,10 @@ body {
 }
 .game-card:active{
     transform: scale(0.90);
-    transition: all .2s;
+    transition: transform .2s;
 }
 .game-card.flip{
-    transform: rotateX(180deg)
+    transform: rotateY(180deg);
 }
 
 .front,
@@ -68,11 +68,11 @@ body {
     height: 100%;
     padding: 20px;
     position: absolute;
-    border-radius: 5px;
+    border-radius: 10px;
     background: red;
     backface-visibility: hidden;
 }
 
 .front{
-    transform: rotateX(180deg)
+    transform: rotateY(180deg);
 }
