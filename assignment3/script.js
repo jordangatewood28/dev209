@@ -3,13 +3,9 @@ let flippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-let attempts = 0;
+var attempts = 0;
 document.querySelector(".attempts").textContent = attempts;
-attempts++;
 
-let startTime;
-let timerStarted = false;
-let timerInterval;
 
 function shuffle(){
     cards.forEach(card => {
@@ -33,6 +29,8 @@ function flipCard(){
 
     secondCard = this;
     checkMatch()
+    ++attempts;
+    document.querySelector(".attempts").textContent = attempts;
 }
 
 function checkMatch(){
@@ -65,7 +63,7 @@ function resetCards() {
 }
 
 function restart() {
-    resetCards();
+    resetCards;
     shuffle();
     attempts = 0;
     document.querySelector(".attempts").textContent = attempts;
