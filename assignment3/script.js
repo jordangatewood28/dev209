@@ -7,12 +7,12 @@ var attempts = 0;
 document.querySelector(".attempts").textContent = attempts;
 
 
-function shuffle(){
+(function shuffle() {
     cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 16);
-        card.style.order = randomPos
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
     });
-};
+})();
 
 function flipCard(){
     if (lockBoard) return;
@@ -63,8 +63,14 @@ function resetCards() {
 }
 
 function restart() {
-    resetCards;
     shuffle();
+    resetCards();
+    document.querySelectorAll(".game-card").forEach((card) => {
+        card.classList.remove("flip");
+    });
+    flippedCard = false;
+    firstCard = null;
+    secondCard = null;
     attempts = 0;
     document.querySelector(".attempts").textContent = attempts;
 }
