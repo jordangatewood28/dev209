@@ -23,20 +23,23 @@ function flipCard(){
     if (!flippedCard){
         flippedCard = true;
         firstCard = this;
+        if (sessionStorage) {
+            sessionStorage.setItem('card1', JSON.stringify(firstCard));
+        }
 
         return;
     }
 
-    if (localStorage) {
-        localStorage.setItem('flippedCard', JSON.stringify(cards));
-    }
-
     secondCard = this;
+    if (sessionStorage) {
+        sessionStorage.setItem('card2', JSON.stringify(secondCard));
+    }
+    
     checkMatch()
     ++attempts;
     document.querySelector(".attempts").textContent = attempts;
-    if (localStorage) {
-        localStorage.setItem('savedAttempts', JSON.stringify(attempts));
+    if (sessionStorage) {
+        sessionStorage.setItem('savedAttempts', JSON.stringify(attempts));
     }
 }
 
@@ -51,9 +54,6 @@ function disableCards(){
     secondCard.removeEventListener('click', flipCard)
 
     resetCards()
-    if (localStorage) {
-        localStorage.setItem('flippedCard', JSON.stringify(cards));
-    }
 }
 
 function unflipCard(){
@@ -88,7 +88,7 @@ function restart() {
     flippedCard = false;
     firstCard = null;
     secondCard = null;
-    localStorage.clear(saveAttempts)
+    sessionStorage.clear(saveAttempts)
     document.querySelector(".attempts").textContent = attempts;
     flippedCard = false;
     lockBoard = false;
@@ -96,18 +96,22 @@ function restart() {
     cards.forEach(card => card.addEventListener('click', flipCard))
 }
 
-if (localStorage) {
-    const saveCardState = localStorage.getItem('flippedCard');
-    var saveAttempts = localStorage.getItem('savedAttempts');
-    console.log(saveCardState);
-    if (saveCardState) {
-        const cards = JSON.parse(saveCardState);
+if (sessionStorage) {
+    let saveCard1 = sessionStorage.getItem('card1');
+    let saveCard2 = sessionStorage.getItem('card2');
+    var saveAttempts = sessionStorage.getItem('savedAttempts');
+    console.log(saveCard1);
+    console.log(saveCard2)
+    if (saveCard1, saveCard2) {
+        firstCard = JSON.parse(saveCard1);
+        secondCard = JSON.parse(saveCard2)
     }
     console.log(saveAttempts);
     if (saveAttempts) {
+        document.querySelector(".attempts").textContent = attempts;
         attempts = JSON.parse(saveAttempts);
     }
 }
 else {
-    console.log("localstorage is not supported")
+    console.log("sessionStorage is not supported")
 }
