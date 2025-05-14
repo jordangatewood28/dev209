@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="formstyle.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial scale=1.0">
+    <title>Authenticate</title>
+</head>
+<body>
+    <div>
+        <h1>AUTHENTICATE</h1>
+        <h2>LOGIN</h2>
+        <form id="login-form" onsubmit="submitLogin(event)">
+            <p>
+                <label id="labelid1" for="username">Username: </label>
+                <input type="text" id="username" name="user_name" />
+            </p>
+            <p>
+                <label id="labelid1" for="password">Password: </label>
+                <input type="text" id="password" name="password"/>
+            </p>
+            <p class="button">
+                <button type="submit">Login</button>
+            </p>
+    </div>
+
+    <div>
+        <h2>REGISTER</h2>
+        <form action="/myhandling-form-page" method="post">
+            <p>
+                <label id="labelid1" for="username">Username: </label>
+                <input type="text" id="username" name="user_name" />
+            </p>
+            <p>
+                <label id="labelid1" for="password">Password: </label>
+                <input type="text" id="password" name="password"/>
+            </p>
+            <p class="button">
+                <button type="submit">Register</button>
+            </p>
+    </div>
+
+</body>
+</html>
