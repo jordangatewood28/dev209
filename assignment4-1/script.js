@@ -89,6 +89,7 @@ function restart() {
     firstCard = null;
     secondCard = null;
     sessionStorage.clear(saveAttempts)
+    attempts = 0;
     document.querySelector(".attempts").textContent = attempts;
     flippedCard = false;
     lockBoard = false;
