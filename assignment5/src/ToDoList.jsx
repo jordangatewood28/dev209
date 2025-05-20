@@ -1,18 +1,5 @@
 import React, {useState} from 'react'
 
-function AuthForm() {
-
-    return(
-    <div>
-        <h2>Login</h2>
-        <form>
-            <div>
-                <input type='text' placeholder="enter your email" />
-            </div>
-        </form>
-    </div>)
-}
-
 function ToDoList(){
     const[tasks, setTasks] = useState(["Do homework","Figure out React Apps","Play"]);
     const [newTask, setNewTask] = useState("")
@@ -54,6 +41,16 @@ function ToDoList(){
 
     return(
     <div className="todolist">
+        <h1>Login</h1>
+        <form>
+            <div>
+                <input type='text' placeholder="enter your email" />
+            </div>
+            <div>
+                <input type='text' placeholder='enter your password'/>
+            </div>
+        </form>
+
         <h1>To Do List</h1>
 
         <div>
